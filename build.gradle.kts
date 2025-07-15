@@ -26,16 +26,22 @@ plugins {
 // O bloco 'subprojects' aplica uma configuração a TODOS os submódulos
 // que foram declarados no settings.gradle.kts (ou seja, 'core' e 'ui').
 subprojects {
-    // Define o 'group' para os artefatos gerados (os .jar). É uma convenção
-    // usar um domínio reverso. Isso ajuda a identificar unicamente seus projetos.
-    group = "com.pedrohenrique.javacalc"
-    // Define a versão inicial do nosso projeto.
+    group = "com.phg.javacalc"
     version = "1.0.0"
 
-    // O bloco 'repositories' diz ao Gradle onde procurar por bibliotecas (dependências).
     repositories {
-        // mavenCentral() é o repositório mais comum e vasto de bibliotecas Java/Kotlin.
-        // É como se fosse a "loja de aplicativos" padrão para nossas dependências.
         mavenCentral()
+    }
+
+    // ADICIONE ESTE BLOCO DE CÓDIGO
+    // Isso configura a "toolchain" (cadeia de ferramentas) do Java.
+    // Ele diz ao Gradle que todos os submódulos devem ser compilados
+    // usando um JDK de versão 21.
+    // Se o Gradle não encontrar um JDK 21 já configurado, ele pode até
+    // baixá-lo automaticamente para você. Isso torna o build muito robusto.
+    java {
+        toolchain {
+            languageVersion.set(JavaLanguageVersion.of(21))
+        }
     }
 }

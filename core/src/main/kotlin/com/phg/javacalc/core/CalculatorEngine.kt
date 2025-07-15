@@ -2,7 +2,7 @@
 // By Pedro henrique garcia.
 // Github/gitlab: Phkaiser13
 
-package com.pedrohenrique.javacalc.core
+package com.phg.javacalc.core
 
 /**
  * CalculatorEngine é o cérebro da calculadora.

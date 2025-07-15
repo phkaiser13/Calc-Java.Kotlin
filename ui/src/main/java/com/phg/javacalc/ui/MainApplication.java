@@ -2,7 +2,7 @@
 // By Pedro henrique garcia.
 // Github/gitlab: Phkaiser13
 
-package com.pedrohenrique.javacalc.ui;
+package com.phg.javacalc.ui;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

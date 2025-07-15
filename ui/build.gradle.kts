@@ -37,7 +37,7 @@ application {
     // Estamos dizendo ao Gradle: "Quando alguém rodar este projeto, a classe
     // a ser executada é a 'MainApplication' dentro do pacote especificado".
     // Nós ainda não criamos este arquivo, mas vamos criá-lo em seguida.
-    mainClass.set("com.pedrohenrique.javacalc.ui.MainApplication")
+    mainClass.set("com.phg.javacalc.ui.MainApplication")
 }
 
 dependencies {

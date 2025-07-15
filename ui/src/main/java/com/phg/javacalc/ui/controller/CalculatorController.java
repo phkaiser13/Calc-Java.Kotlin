@@ -2,7 +2,7 @@
 // By Pedro henrique garcia.
 // Github/gitlab: Phkaiser13
 
-package com.pedrohenrique.javacalc.ui.controller;
+package com.phg.javacalc.ui.controller;
 
 import com.pedrohenrique.javacalc.core.CalculatorEngine;
 import javafx.event.ActionEvent;
