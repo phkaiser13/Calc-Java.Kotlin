@@ -1,65 +1,94 @@
-﻿// 2025
+// 2025
 // By Pedro henrique garcia.
 // Github/gitlab: Phkaiser13
 
 package com.phg.javacalc.ui.controller;
 
-import com.pedrohenrique.javacalc.core.CalculatorEngine;
+import com.phg.javacalc.core.CalculatorEngine;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyEvent; // NOVO: Import necessário para eventos de teclado.
 
 /**
- * CalculatorController (Versão FXML)
+ * CalculatorController (Versão Final)
  *
- * Esta versão do controlador é projetada para funcionar com um arquivo FXML.
- * A criação da UI foi movida para o 'calculator-view.fxml'.
- * A responsabilidade desta classe é puramente de 'controlar' a UI.
- *
- * As anotações @FXML são a cola entre o arquivo FXML e este código Java.
+ * Esta versão do controlador inclui:
+ * - Lógica de clique do botão via FXML.
+ * - Tratamento do estado de "Erro".
+ * - Ajuste dinâmico do tamanho da fonte do display.
+ * - Manipulação de entrada do teclado físico.
  */
 public class CalculatorController {
 
-    // A anotação @FXML diz ao FXMLLoader para injetar o componente
-    // com fx:id="display" do arquivo FXML nesta variável.
     @FXML
     private Label display;
 
-    // A instância do nosso motor lógico permanece a mesma.
     private final CalculatorEngine engine = new CalculatorEngine();
 
-    /**
-     * Este método é chamado AUTOMATICAMENTE pelo FXMLLoader depois que o arquivo FXML
-     * é carregado e todos os campos @FXML foram injetados.
-     * É o lugar perfeito para fazer qualquer configuração inicial.
-     */
     @FXML
     public void initialize() {
-        // Garante que o display comece sincronizado com o estado inicial do engine.
         updateDisplay();
     }
 
-    /**
-     * Manipula o evento de clique de QUALQUER botão definido no FXML.
-     * O FXML foi configurado para que todos os botões chamem este método (onAction="#handleButtonClick").
-     *
-     * @param event O evento de ação, que contém informações sobre o que aconteceu,
-     *              incluindo qual botão foi a fonte do evento.
-     */
     @FXML
     private void handleButtonClick(ActionEvent event) {
-        // 1. Descobrir qual botão foi clicado.
+        // Se a calculadora está em estado de erro, só permita a ação 'Clear'.
+        if (display.getText().equals("Erro")) {
+            if (((Button) event.getSource()).getText().equals("C")) {
+                engine.clear();
+                updateDisplay();
+            }
+            return; // Ignora qualquer outro clique
+        }
+
         Button clickedButton = (Button) event.getSource();
         String text = clickedButton.getText();
+        processInput(text); // Lógica de processamento foi movida para um método separado
+    }
 
-        // 2. A lógica para processar o texto é exatamente a mesma de antes.
+    /**
+     * NOVO: Manipula eventos vindos do teclado físico.
+     * Este método precisa ser chamado a partir da classe MainApplication.
+     * @param event O evento de tecla pressionada.
+     */
+    public void handleKeyEvent(KeyEvent event) {
+        // Se a calculadora está em estado de erro, só permita a ação 'Clear' (tecla Esc).
+        if (display.getText().equals("Erro")) {
+            if (event.getCode() == javafx.scene.input.KeyCode.ESCAPE) {
+                engine.clear();
+                updateDisplay();
+            }
+            return; // Ignora qualquer outra tecla
+        }
+
+        String keyText = event.getText();
+
+        // Mapeia teclas especiais que não produzem um 'texto'
+        switch (event.getCode()) {
+            case ESCAPE:
+                keyText = "C";
+                break;
+            case ENTER:
+                keyText = "=";
+                break;
+        }
+
+        processInput(keyText);
+    }
+
+    /**
+     * NOVO: Centraliza a lógica de processamento de entrada (de botões ou teclado).
+     * @param input O texto a ser processado (ex: "7", "+", "C").
+     */
+    private void processInput(String input) {
         try {
-            int digit = Integer.parseInt(text);
+            int digit = Integer.parseInt(input);
             engine.inputDigit(digit);
         } catch (NumberFormatException e) {
-            switch (text) {
-                case ".":
+            switch (input) {
+                case ".": case ",": // Aceita tanto ponto quanto vírgula (do teclado numérico)
                     engine.inputDecimal();
                     break;
                 case "C":
@@ -70,20 +99,28 @@ public class CalculatorController {
                 case "*":
                 case "/":
                 case "=":
-                    engine.performOperation(text);
+                    engine.performOperation(input);
                     break;
             }
         }
-
-        // 3. Após cada ação, atualizamos o display.
         updateDisplay();
     }
 
     /**
-     * Atualiza o texto do display com o valor atual do CalculatorEngine.
-     * Este método não muda, mas agora ele opera no Label que foi injetado pelo FXML.
+     * MODIFICADO: Atualiza o display e ajusta o tamanho da fonte dinamicamente.
      */
     private void updateDisplay() {
-        display.setText(engine.getDisplayValue());
+        String text = engine.getDisplayValue();
+        display.setText(text);
+
+        // Lógica para ajustar o tamanho da fonte com base no comprimento do texto
+        if (text.length() > 9) {
+            display.setStyle("-fx-font-size: 32pt;");
+        } else if (text.length() > 6) {
+            display.setStyle("-fx-font-size: 48pt;");
+        } else {
+            // Retorna ao tamanho padrão definido no CSS (ou um padrão aqui)
+            display.setStyle("-fx-font-size: 60pt;");
+        }
     }
 }

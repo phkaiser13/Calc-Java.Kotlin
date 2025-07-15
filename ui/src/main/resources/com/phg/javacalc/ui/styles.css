@@ -17,10 +17,15 @@
 
 /* Estilo para o display da calculadora */
 .label {
-    -fx-font-size: 48pt;
-    -fx-font-family: "Segoe UI Light", "San Francisco", "Helvetica Neue", sans-serif;
-    -fx-text-fill: white; /* Texto branco */
-    -fx-background-color: transparent; /* Fundo transparente para mostrar o .root */
+    -fx-font-size: 60pt; /* Um pouco maior */
+    -fx-font-family: "Segoe UI Light", sans-serif; /* Fonte mais leve */
+    -fx-text-fill: white;
+    -fx-background-color: transparent;
+    -fx-padding: 0 20 0 20; /* Adiciona padding à direita e à esquerda */
+}
+
+.main-container {
+    -fx-background-color: transparent;
 }
 
 /* Estilo GERAL para todos os botões */
