@@ -26,7 +26,7 @@ Para compilar e executar este projeto, você precisará ter instalado:
 
 1.  **Clone o repositório** para a sua máquina local:
     ```bash
-    git clone <url-do-seu-repositorio>
+    git clone <https://github.com/phkaiser13/JavaCalc.git>
     ```
 
 2.  **Navegue até o diretório raiz** do projeto:
