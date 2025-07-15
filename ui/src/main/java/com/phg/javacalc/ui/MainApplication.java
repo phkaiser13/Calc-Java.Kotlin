@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent; // Import já estava presente, agora será usado
 
 import java.net.URL;
@@ -34,6 +35,7 @@ public class MainApplication extends Application {
         URL fxmlUrl = getClass().getResource("calculator-view.fxml");
         loader.setLocation(fxmlUrl);
 
+
         Parent rootNode = loader.load();
 
         // 2. OBTER A INSTÂNCIA DO CONTROLADOR
@@ -52,9 +54,11 @@ public class MainApplication extends Application {
         URL cssUrl = getClass().getResource("styles.css");
         scene.getStylesheets().add(Objects.requireNonNull(cssUrl).toExternalForm());
 
-        primaryStage.setTitle("Calculadora Bonita");
+        primaryStage.setTitle("JavCalc");
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.show();
+        Image icon = new Image(MainApplication.class.getResourceAsStream("icon.png"));
+        primaryStage.getIcons().add(icon);
     }
 }

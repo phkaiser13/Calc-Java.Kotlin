@@ -21,7 +21,6 @@
 <BorderPane xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.phg.javacalc.ui.controller.CalculatorController">
-            styleClass="main-container">
 
     <!-- Região TOP do BorderPane: O Display -->
     <top>
