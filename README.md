@@ -1,7 +1,6 @@
 # JavaCalc ☕🔢
 
-![JavaCalc](JavaCalc/ui/src/main/resources/com/phg/javacalc/ui
-/icon.png) Uma calculadora simples e moderna desenvolvida com JavaFX para a interface gráfica e Kotlin para o motor de cálculos. Este projeto é um ótimo exemplo de uma aplicação desktop multi-módulo construída com Gradle.
+![JavaCalc](./ui/src/main/resources/com/phg/javacalc/ui/icon.png) Uma calculadora simples e moderna desenvolvida com JavaFX para a interface gráfica e Kotlin para o motor de cálculos. Este projeto é um ótimo exemplo de uma aplicação desktop multi-módulo construída com Gradle.
 
 ## ✨ Funcionalidades
 
