@@ -12,7 +12,7 @@
 <p>
     <img src="https://img.icons8.com/color/48/java-coffee-cup-logo.png" alt="Java" width="48"/>
     <img src="https://img.icons8.com/color/48/kotlin.png" alt="Kotlin" width="48"/>
-    <img src="https://img.icons8.com/?size=100&id=XgguxSJs8lgy&format=png&color=#ffffff" alt="FX" width="48" style="vertical-align: middle;">
+    <img src="https://img.icons8.com/?size=100&id=39154&format=png&color=000000" alt="FX" width="48" style="vertical-align: middle;">
     <img src="https://www.svgrepo.com/show/353831/gradle.svg" alt="Gradle" width="48"/>
   </p>
 </div>
