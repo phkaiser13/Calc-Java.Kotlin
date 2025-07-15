@@ -9,11 +9,11 @@
   <p>
     <em>Este projeto é um ótimo exemplo de uma aplicação desktop multi-módulo construída com Gradle.</em>
   </p>
-  <p>
-    <img src="https://img.shields.io/badge/Java-21-blue?logo=openjdk&logoColor=white" alt="Java 21">
-    <img src="https://img.shields.io/badge/Kotlin-1.9-blueviolet?logo=kotlin&logoColor=white" alt="Kotlin 1.9">
-    <img src="https://img.shields.io/badge/UI-JavaFX-orange?logo=oracle&logoColor=white" alt="JavaFX">
-    <img src="https://img.shields.io/badge/Build-Gradle-green?logo=gradle&logoColor=white" alt="Gradle">
+<p>
+    <img src="https://img.icons8.com/color/48/java-coffee-cup-logo.png" alt="Java" width="48"/>
+    <img src="https://img.icons8.com/color/48/kotlin.png" alt="Kotlin" width="48"/>
+    <img src="https://img.icons8.com/color/48/monitor.png" alt="JavaFX UI" width="48"/>
+    <img src="https://img.icons8.com/color/48/gradle.png" alt="Gradle" width="48"/>
   </p>
 </div>
 
