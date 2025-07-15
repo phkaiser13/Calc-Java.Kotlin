@@ -1,0 +1,72 @@
+﻿/*
+ * 2025
+ * By Pedro henrique garcia.
+ * Github/gitlab: Phkaiser13
+ *
+ * styles.css
+ *
+ * Folha de estilos para a Calculadora Bonita.
+ * Usamos seletores de classe (.root, .button) para aplicar estilos
+ * aos componentes JavaFX.
+ */
+
+/* Estilo para o nó raiz da cena (o fundo da janela) */
+.root {
+    -fx-background-color: #1d1d1d; /* Um cinza bem escuro, quase preto */
+}
+
+/* Estilo para o display da calculadora */
+.label {
+    -fx-font-size: 48pt;
+    -fx-font-family: "Segoe UI Light", "San Francisco", "Helvetica Neue", sans-serif;
+    -fx-text-fill: white; /* Texto branco */
+    -fx-background-color: transparent; /* Fundo transparente para mostrar o .root */
+}
+
+/* Estilo GERAL para todos os botões */
+.button {
+    -fx-font-size: 22pt;
+    -fx-font-family: "Segoe UI", "San Francisco", "Helvetica Neue", sans-serif;
+    -fx-background-color: #3a3a3a; /* Cinza escuro para os botões de número */
+    -fx-text-fill: white;
+    -fx-background-radius: 100; /* Deixa os botões perfeitamente redondos/ovais */
+    -fx-border-width: 0; /* Remove qualquer borda padrão */
+}
+
+/* Efeito quando o mouse passa por cima de QUALQUER botão */
+.button:hover {
+    -fx-background-color: #555555; /* Cor fica um pouco mais clara */
+}
+
+/* Efeito quando QUALQUER botão é pressionado */
+.button:pressed {
+    -fx-background-color: #707070; /* Cor mais clara ainda */
+    -fx-scale-x: 0.97; /* Animação sutil de "aperto" no eixo X */
+    -fx-scale-y: 0.97; /* Animação sutil de "aperto" no eixo Y */
+}
+
+/* --- ESTILOS ESPECÍFICOS PARA TIPOS DE BOTÕES --- */
+/* Nós vamos adicionar essas "classes de estilo" aos botões no código Java */
+
+/* Estilo para os botões de operação (+, -, *, /, =) */
+.button-operator {
+    -fx-background-color: #ff9500; /* Laranja vibrante, clássico de calculadoras */
+}
+.button-operator:hover {
+    -fx-background-color: #ffab3e;
+}
+.button-operator:pressed {
+    -fx-background-color: #ffc17a;
+}
+
+/* Estilo para os botões de utilidade (C) */
+.button-utility {
+    -fx-background-color: #a5a5a5; /* Cinza claro */
+    -fx-text-fill: black; /* Texto preto para contrastar */
+}
+.button-utility:hover {
+    -fx-background-color: #bebebe;
+}
+.button-utility:pressed {
+    -fx-background-color: #d8d8d8;
+}

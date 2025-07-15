@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ 2025
+ By Pedro henrique garcia.
+ Github/gitlab: Phkaiser13
+-->
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<!--
+  O nó raiz é um BorderPane. A linha 'fx:controller' é crucial:
+  ela conecta este arquivo de layout à nossa classe de lógica Java.
+-->
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.pedrohenrique.javacalc.ui.controller.CalculatorController">
+
+    <!-- Região TOP do BorderPane: O Display -->
+    <top>
+        <!--
+          'fx:id' é como o 'id' em HTML. Ele nos permite obter uma referência
+          a este Label específico no nosso código Java (Controller).
+        -->
+        <Label fx:id="display" alignment="CENTER_RIGHT" maxWidth="Infinity" text="0">
+            <padding>
+                <Insets right="10" left="10" top="10" bottom="10"/>
+            </padding>
+        </Label>
+    </top>
+
+    <!-- Região CENTER do BorderPane: A Grade de Botões -->
+    <center>
+        <GridPane hgap="5" vgap="5">
+            <!-- Definição das colunas e linhas para que se expandam igualmente -->
+            <columnConstraints>
+                <ColumnConstraints hgrow="ALWAYS"/>
+                <ColumnConstraints hgrow="ALWAYS"/>
+                <ColumnConstraints hgrow="ALWAYS"/>
+                <ColumnConstraints hgrow="ALWAYS"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints vgrow="ALWAYS"/>
+                <RowConstraints vgrow="ALWAYS"/>
+                <RowConstraints vgrow="ALWAYS"/>
+                <RowConstraints vgrow="ALWAYS"/>
+                <RowConstraints vgrow="ALWAYS"/>
+            </rowConstraints>
+
+            <!--
+              'onAction' aponta para o método no Controller que deve ser chamado
+              quando o botão for clicado. O '#' é obrigatório.
+              'styleClass' aplica nossos estilos CSS personalizados.
+            -->
+            <Button text="C" onAction="#handleButtonClick" styleClass="button-utility" maxWidth="Infinity" maxHeight="Infinity" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+            <Button text="/" onAction="#handleButtonClick" styleClass="button-operator" maxWidth="Infinity" maxHeight="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+            <Button text="*" onAction="#handleButtonClick" styleClass="button-operator" maxWidth="Infinity" maxHeight="Infinity" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+            <Button text="-" onAction="#handleButtonClick" styleClass="button-operator" maxWidth="Infinity" maxHeight="Infinity" GridPane.columnIndex="3" GridPane.rowIndex="0"/>
+
+            <Button text="7" onAction="#handleButtonClick" maxWidth="Infinity" maxHeight="Infinity" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+            <Button text="8" onAction="#handleButtonClick" maxWidth="Infinity" maxHeight="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+            <Button text="9" onAction="#handleButtonClick" maxWidth="Infinity" maxHeight="Infinity" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+
+            <Button text="+" onAction="#handleButtonClick" styleClass="button-operator" maxWidth="Infinity" maxHeight="Infinity" GridPane.columnIndex="3" GridPane.rowIndex="1" GridPane.rowSpan="2"/>
+
+            <Button text="4" onAction="#handleButtonClick" maxWidth="Infinity" maxHeight="Infinity" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+            <Button text="5" onAction="#handleButtonClick" maxWidth="Infinity" maxHeight="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+            <Button text="6" onAction="#handleButtonClick" maxWidth="Infinity" maxHeight="Infinity" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+
+            <Button text="1" onAction="#handleButtonClick" maxWidth="Infinity" maxHeight="Infinity" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+            <Button text="2" onAction="#handleButtonClick" maxWidth="Infinity" maxHeight="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+            <Button text="3" onAction="#handleButtonClick" maxWidth="Infinity" maxHeight="Infinity" GridPane.columnIndex="2" GridPane.rowIndex="3"/>
+
+            <Button text="=" onAction="#handleButtonClick" styleClass="button-operator" maxWidth="Infinity" maxHeight="Infinity" GridPane.columnIndex="3" GridPane.rowIndex="3" GridPane.rowSpan="2"/>
+
+            <Button text="0" onAction="#handleButtonClick" maxWidth="Infinity" maxHeight="Infinity" GridPane.columnIndex="0" GridPane.rowIndex="4" GridPane.columnSpan="2"/>
+            <Button text="." onAction="#handleButtonClick" maxWidth="Infinity" maxHeight="Infinity" GridPane.columnIndex="2" GridPane.rowIndex="4"/>
+
+            <padding>
+                <Insets bottom="5" left="5" right="5" top="5"/>
+            </padding>
+        </GridPane>
+    </center>
+</BorderPane>
