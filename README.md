@@ -13,7 +13,7 @@
     <img src="https://img.icons8.com/color/48/java-coffee-cup-logo.png" alt="Java" width="48"/>
     <img src="https://img.icons8.com/color/48/kotlin.png" alt="Kotlin" width="48"/>
     <img src="https://img.icons8.com/color/48/monitor.png" alt="JavaFX UI" width="48"/>
-    <img src="https://img.icons8.com/color/48/gradle.png" alt="Gradle" width="48"/>
+    <img src="https://www.svgrepo.com/show/353831/gradle.svg" alt="Gradle" width="48"/>
   </p>
 </div>
 
