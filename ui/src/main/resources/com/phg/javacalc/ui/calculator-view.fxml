@@ -20,7 +20,7 @@
 -->
 <BorderPane xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.pedrohenrique.javacalc.ui.controller.CalculatorController">
+            fx:controller="com.phg.javacalc.ui.controller.CalculatorController">
 
     <!-- Região TOP do BorderPane: O Display -->
     <top>
