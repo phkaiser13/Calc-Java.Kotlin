@@ -12,7 +12,8 @@
 <p>
     <img src="https://img.icons8.com/color/48/java-coffee-cup-logo.png" alt="Java" width="48"/>
     <img src="https://img.icons8.com/color/48/kotlin.png" alt="Kotlin" width="48"/>
-    <img src="https://img.icons8.com/color/48/monitor.png" alt="JavaFX UI" width="48"/>
+    <img src="https://img.icons8.com/color/48/java-coffee-cup-logo.png" alt="Java" width="48" style="vertical-align: middle;">
+    <img src="https://img.icons8.com/material-outlined/48/fx.png" alt="FX" width="48" style="vertical-align: middle;">
     <img src="https://www.svgrepo.com/show/353831/gradle.svg" alt="Gradle" width="48"/>
   </p>
 </div>
