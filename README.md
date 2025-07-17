@@ -33,6 +33,14 @@
 * **Ferramenta de Build:** Gradle
 * **Arquitetura:** Projeto multi-módulo (`core` para a lógica e `ui` para a interface).
 
+---
+**Caso queira instalar e ver:**
+[Instalador MSI (Windows](https://github.com/phkaiser13/Calc-Java.Kotlin/releases/download/1.0-vrsnd/JavaCalc-1.0.0.msi)
+
+
+---
+**Para compilar**
+
 ## 📋 Pré-requisitos
 
 Para compilar e executar este projeto, você precisará ter instalado:
@@ -62,6 +70,7 @@ Para compilar e executar este projeto, você precisará ter instalado:
         ```bash
         ./gradlew ui:run
         ```
+---
 ## ✍️ Autor
 
 Feito com ❤️ por **Pedro Henrique Garcia**.
