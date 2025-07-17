@@ -12,35 +12,37 @@ on:
   push:
     branches: [ "main" ]
 
-# Define os trabalhos a serem executados.
 jobs:
   build-installer:
-    # O trabalho será executado em uma máquina virtual Windows,
-    # que é necessário para criar um instalador .msi.
+    # O trabalho será executado em uma máquina virtual Windows.
     runs-on: windows-latest
 
     steps:
-      # 1. Baixa o código do seu repositório para a máquina virtual.
+      # 1. Baixa o código do seu repositório.
       - name: Checkout repository
         uses: actions/checkout@v4
 
       # 2. Configura o ambiente Java (JDK 21).
-      # Usamos a mesma versão do seu workflow de CI para manter a consistência.
       - name: Set up JDK 21
         uses: actions/setup-java@v4
         with:
           java-version: '21'
           distribution: 'temurin'
 
-      # 3. Executa a tarefa 'installDist' do Gradle no módulo 'ui'.
-      # Esta tarefa compila a aplicação e agrupa todos os arquivos necessários
-      # (seus JARs e as dependências, como o JavaFX) em uma única pasta,
-      # pronta para ser empacotada.
+      # 3. Executa a tarefa 'installDist' para compilar e agrupar a aplicação.
       - name: Build application distribution with Gradle
         run: ./gradlew.bat :ui:installDist
 
-      # 4. Cria o instalador .msi usando a ferramenta 'jpackage'.
-      # 'jpackage' é uma ferramenta do próprio JDK para criar instaladores nativos.
+      # 4. (Passo de Depuração) Lista os arquivos na pasta de distribuição.
+      # Isso ajuda a verificar se os caminhos e nomes de arquivos estão corretos antes de empacotar.
+      - name: List files in distribution directory
+        run: |
+          echo "Listing contents of ui/build/install/ui..."
+          ls -R ui/build/install/ui
+        shell: bash
+
+      # 5. Cria o instalador .msi usando a ferramenta 'jpackage'.
+      # A correção está na linha '--input', que agora aponta para a subpasta 'lib'.
       - name: Create MSI Installer with jpackage
         run: |
           jpackage --type msi `
@@ -48,15 +50,13 @@ jobs:
             --name JavaCalc `
             --app-version 1.0.0 `
             --vendor "Pedro Henrique Garcia" `
-            --input ui/build/install/ui `
+            --input ui/build/install/ui/lib `
             --main-jar ui-1.0.0.jar `
             --main-class com.phg.javacalc.ui.MainApplication `
             --icon ui/src/main/resources/com/phg/javacalc/ui/icon.ico
         shell: powershell
 
-      # 5. Faz o upload do instalador gerado como um "artefato".
-      # Isso permite que você baixe o arquivo .msi diretamente da página
-      # de resumo da execução do workflow no GitHub.
+      # 6. Faz o upload do instalador gerado como um "artefato".
       - name: Upload MSI Artifact
         uses: actions/upload-artifact@v3
         with:
